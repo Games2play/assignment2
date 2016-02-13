@@ -9,7 +9,7 @@
 <body>
 
 <div class="container">
-  
+<!--html code below-->
 <ul class="nav nav-tabs">
   <li><h4>Assignment2&nbsp&nbsp</h4></li>
   <li class="active"><a href="customer_view.php">View</a></li>
@@ -30,7 +30,7 @@
 		<th>Phone</th>
       </tr>
     </thead>
-
+<!-- Php code below that views the database-->
 <?php // query.php
 
 // require_once 'login.php';
