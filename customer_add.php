@@ -166,7 +166,7 @@ if (isset($_POST["submit"])) {
     $sql = "INSERT INTO customers (firstName, lastName, address, city, state, zip, email, phone)
     VALUES ('$firstName' , '$lastName' , '$address', '$city', '$state', '$zip', '$email', '$phone')";
 
-
+    // Database processing
     if (mysqli_query($conn, $sql)) {
       echo "Records added successfully.";
     }else{
@@ -176,7 +176,7 @@ if (isset($_POST["submit"])) {
 
   }
 
-$conn->close();
+$conn->close(); // Close out the database connection. 
 ?>
 
 
