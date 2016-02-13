@@ -166,7 +166,7 @@ if (isset($_POST["submit"])) {
     $sql = "INSERT INTO customers (firstName, lastName, address, city, state, zip, email, phone)
     VALUES ('$firstName' , '$lastName' , '$address', '$city', '$state', '$zip', '$email', '$phone')";
 
-
+    // Determines if the database was updated properly. 
     if (mysqli_query($conn, $sql)) {
       echo "Records added successfully.";
     }else{
