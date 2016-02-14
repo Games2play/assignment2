@@ -8,82 +8,73 @@
 </head>
 <body>
 
-<div class="container">
-<!--html code below-->
-<ul class="nav nav-tabs">
-  <li><h4>Assignment2&nbsp&nbsp</h4></li>
-  <li class="active"><a href="customer_view.php">View</a></li>
-  <li><a href="customer_add.php">Add</a></li>
-</ul>                                                                           
-  <div class="table-responsive">          
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Last/Company Name</th>
-        <th>First Name</th>
-        <th>Address</th>
-        <th>City</th>
-        <th>State</th>
-		<th>Zip</th>
-		<th>Email</th>
-		<th>Phone</th>
-      </tr>
-    </thead>
-<!-- Php code below that views the database-->
-<?php // query.php
+			<div class="container">
+			<!--html code below-->
+			<ul class="nav nav-tabs">
+			  <li><h4>Assignment2&nbsp&nbsp</h4></li>
+			  <li class="active"><a href="#">View</a></li>
+			  <li><a href="customer_add.html">Add</a></li>
+			</ul>                                                                           
+			  <div class="table-responsive">          
+			  <table class="table">
+			    <thead>
+			      <tr>
+			        <th>ID</th>
+			        <th>Last/Company Name</th>
+			        <th>First Name</th>
+			        <th>Address</th>
+			        <th>City</th>
+			        <th>State</th>
+					<th>Zip</th>
+					<th>Email</th>
+					<th>Phone</th>
+			      </tr>
+			    </thead>
 
-// require_once 'login.php';
+				<!-- Php code below that views the database-->
+				<?php // query.php
 
-// login.php
-$hn = 'www.it354.com';
-$db = 'it354_students';
-$un = 'it354_students';
-$pw = 'steinway';
+				// require_once 'login.php';
 
-$conn = new mysqli($hn, $un, $pw, $db);
-if ($conn->connect_error) die($conn->connect_error);
+				// login.php
+				$hn = 'www.it354.com';
+				$db = 'it354_students';
+				$un = 'it354_students';
+				$pw = 'steinway';
 
-$query = "SELECT * FROM customers";
-$result = $conn->query($query);
-if (!$result) die($conn->error);
+				$conn = new mysqli($hn, $un, $pw, $db);
+				if ($conn->connect_error) die($conn->connect_error);
 
-$rows = $result->num_rows;
+				$query = "SELECT * FROM customers";
+				$result = $conn->query($query);
+				if (!$result) die($conn->error);
 
-for ($j = 0 ; $j < $rows ; ++$j)
-{
-	$result->data_seek($j);
-	$row = $result->fetch_array(MYSQLI_ASSOC);
-	
-	echo '<tbody>' . '<tr>';
-	echo '<td>' . $j . '</td>';
-	echo '<td>' . $row['firstName'] . '</td>';
-	echo '<td>' . $row['lastName'] . '</td>';
-	echo '<td>' . $row['address'] . '</td>';
-	echo '<td>' . $row['city'] . '</td>';
-	echo '<td>' . $row['state'] . '</td>';
-	echo '<th>' . $row['zip'] . '</th>';
-	echo '<th>' . $row['email'] . '</th>';
-	echo '<th>' . $row['phone'] . '</th>';
-	echo '</tr>' . '</tbody>';
-	
-	/*
-	echo $row['firstName'] . '<br>';
-	echo $row['lastName'] . '<br>';
-	echo $row['address'] . '<br>';
-	echo $row['city'] . '<br>';
-	echo $row['state'] . '<br>';
-	echo $row['zip'] . '<br>';
-	echo $row['email'] . '<br>';
-	echo $row['phone'] . '<br><br>';
-	*/
-}
+				$rows = $result->num_rows;
+
+				for ($j = 0 ; $j < $rows ; ++$j)
+				{
+					$result->data_seek($j);
+					$row = $result->fetch_array(MYSQLI_ASSOC);
+					
+					echo '<tbody>' . '<tr>';
+					echo '<td>' . $j . '</td>';
+					echo '<td>' . $row['firstName'] . '</td>';
+					echo '<td>' . $row['lastName'] . '</td>';
+					echo '<td>' . $row['address'] . '</td>';
+					echo '<td>' . $row['city'] . '</td>';
+					echo '<td>' . $row['state'] . '</td>';
+					echo '<th>' . $row['zip'] . '</th>';
+					echo '<th>' . $row['email'] . '</th>';
+					echo '<th>' . $row['phone'] . '</th>';
+					echo '</tr>' . '</tbody>';
+					
+				}
 
 
 
-$result->close();
-$conn->close();
-?>
+				$result->close();
+				$conn->close();
+				?>
 	</table>
 	</div>
 </div>
